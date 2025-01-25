@@ -95,20 +95,23 @@ export default function Sofas() {
 
   return (
     <div
-      className="grid grid-cols-3 gap-4"
+      className="grid gap-6 p-4 bg-gray-100 md:p-8"
       style={{ backgroundColor: "#F6F6F2" }}
     >
-      {sofas.map((sofa) => (
-        <Sofa
-          key={sofa.id}
-          id={sofa.id}
-          name={sofa.name}
-          price={parseFloat(sofa.price.replace(/,/g, ""))}
-          img1={sofa.img1}
-          img2={sofa.img2}
-          quantity={sofa.quantity} // Pass quantity as a number
-        />
-      ))}
+      {/* Responsive grid layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {sofas.map((sofa) => (
+          <Sofa
+            key={sofa.id}
+            id={sofa.id}
+            name={sofa.name}
+            price={parseFloat(sofa.price.replace(/,/g, ""))}
+            img1={sofa.img1}
+            img2={sofa.img2}
+            quantity={sofa.quantity}
+          />
+        ))}
+      </div>
     </div>
   );
 }
